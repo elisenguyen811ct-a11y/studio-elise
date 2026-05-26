@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Elise — Content & Growth for Local Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mist: #eaf2ef;
+  --sage: #c8ddd7;
+  --teal: #4a8a82;
+  --teal-deep: #2d6358;
+  --teal-pale: #7ab5ac;
+  --ink: #1a2e2c;
+  --cream: #f7fbf9;
+  --petal: #ddf0ec;
+  --muted: #7a9e99;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(74,138,130,.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;padding:0 52px;display:flex;align-items:center;justify-content:space-between;background:rgba(234,242,239,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,138,130,.12)}
+@media(max-width:768px){nav{padding:0 20px}}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
+.logo-sub{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--teal);font-weight:400}
+.logo-main{font-family:'Great Vibes',cursive;font-size:28px;color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{border:1px solid var(--teal)!important;color:var(--teal)!important;padding:9px 22px;transition:background .2s,color .2s!important}
+.nav-cta:hover{background:var(--teal)!important;color:white!important}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(122,181,172,.18) 0%,transparent 65%),radial-gradient(ellipse 50% 70% at 20% 80%,rgba(74,138,130,.1) 0%,transparent 60%),linear-gradient(160deg,#eaf2ef 0%,#f2f9f7 40%,#e8f5f2 100%)}
+
+/* petals */
+.petal{position:absolute;border:1px solid rgba(122,181,172,.22);border-radius:60% 40% 60% 40%/40% 60% 40% 60%;background:rgba(200,221,215,.12);animation:floatPetal linear infinite;pointer-events:none}
+@keyframes floatPetal{0%{transform:translateY(100vh) rotate(0deg) scale(.8);opacity:0}10%{opacity:.55}90%{opacity:.25}100%{transform:translateY(-20vh) rotate(360deg) scale(1.1);opacity:0}}
+
+.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:120px 52px 80px;max-width:720px}
+@media(max-width:768px){.hero-content{padding:100px 24px 60px}}
+
+.hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);margin-bottom:28px;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .1s}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--teal)}
+
+.hero-script{font-family:'Great Vibes',cursive;font-size:clamp(68px,10vw,128px);color:var(--teal-deep);line-height:.95;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .25s;text-shadow:0 2px 40px rgba(74,138,130,.15)}
+
+.hero-serif{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.2vw,36px);font-weight:300;color:var(--ink);line-height:1.3;margin-top:10px;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .4s}
+.hero-serif em{font-style:italic;color:var(--teal)}
+
+.hero-tagline{font-size:14px;color:var(--muted);line-height:1.85;max-width:420px;margin-top:28px;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .55s}
+.hero-tagline .es{display:block;font-style:italic;font-size:13px;color:var(--teal-pale);margin-top:6px}
+.hero-industries{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-top:20px;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .65s}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px;opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .7s}
+.btn-teal{background:var(--teal);color:white;padding:14px 34px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .25s,transform .2s}
+.btn-teal:hover{background:var(--teal-deep);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--teal-pale);color:var(--teal);padding:14px 34px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s}
+.btn-outline:hover{border-color:var(--teal-deep);color:var(--teal-deep)}
+
+/* Hero visual right */
+.hero-visual{position:absolute;right:0;top:0;bottom:0;width:44%;z-index:1;overflow:hidden}
+@media(max-width:900px){.hero-visual{display:none}}
+.hero-visual-fade{position:absolute;left:0;top:0;bottom:0;width:55%;background:linear-gradient(to right,var(--cream),transparent);z-index:2}
+.hero-visual-bg{width:100%;height:100%;background:linear-gradient(135deg,rgba(200,221,215,.35),rgba(122,181,172,.2));display:flex;align-items:center;justify-content:center}
+.hero-ph{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:12px;text-align:center;z-index:1;position:relative}
+.hero-ph .phi{font-size:36px;opacity:.3}
+
+.proof-badge{position:absolute;bottom:52px;right:52px;background:white;border:1px solid rgba(74,138,130,.18);padding:20px 24px;text-align:center;z-index:3;box-shadow:0 8px 40px rgba(74,138,130,.1);opacity:0;animation:driftUp .9s cubic-bezier(.16,1,.3,1) forwards .9s}
+.proof-badge strong{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;color:var(--teal-deep);line-height:1;display:block}
+.proof-badge span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* Ticker */
+.ticker-wrap{position:relative;z-index:2;border-top:1px solid rgba(74,138,130,.12);padding:16px 0;background:rgba(234,242,239,.75);backdrop-filter:blur(8px);overflow:hidden;opacity:0;animation:fadeIn 1s ease forwards 1s}
+.ticker-track{display:flex;gap:0;animation:ticker 28s linear infinite;white-space:nowrap}
+.ticker-item{display:inline-flex;align-items:center;gap:18px;padding:0 32px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);flex-shrink:0}
+.tdot{color:var(--teal);font-size:7px}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{background:var(--teal-deep);padding:52px;display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.stats{grid-template-columns:1fr 1fr;padding:36px 24px}}
+.stat{text-align:center;padding:16px 24px;border-right:1px solid rgba(255,255,255,.08)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(200,221,215,.9);line-height:1;margin-bottom:8px}
+.stat-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);line-height:1.6}
+
+/* SECTIONS */
+.s-wrap{padding:100px 52px;position:relative}
+@media(max-width:768px){.s-wrap{padding:70px 24px}}
+.s-eye{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.s-eye::before{content:'';width:28px;height:1px;background:var(--teal)}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:18px}
+.s-title em{font-style:italic;color:var(--teal)}
+.s-body{font-size:15px;color:var(--muted);line-height:1.85;max-width:500px}
+
+/* SERVE */
+.serve{background:var(--cream)}
+.serve-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;align-items:end}
+@media(max-width:800px){.serve-header{grid-template-columns:1fr;gap:24px}}
+.serve-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(74,138,130,.1)}
+@media(max-width:1100px){.serve-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.serve-grid{grid-template-columns:1fr}}
+.serve-card{padding:36px 28px;border-right:1px solid rgba(74,138,130,.08);border-bottom:1px solid rgba(74,138,130,.08);transition:background .3s}
+.serve-card:hover{background:rgba(200,221,215,.2)}
+.serve-icon{font-size:26px;margin-bottom:14px;display:block}
+.serve-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.serve-desc{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* PORTFOLIO */
+.portfolio{background:var(--mist)}
+.port-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.port-label::before{content:'';width:28px;height:1px;background:var(--sage)}
+.port-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:270px 270px;gap:8px}
+@media(max-width:900px){.port-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}}
+@media(max-width:500px){.port-grid{grid-template-columns:1fr}}
+.port-item{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:transform .4s}
+.port-item:hover{transform:scale(1.01);z-index:2}
+.port-item.tall{grid-row:span 2}
+.port-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted);font-size:12px;text-align:center;padding:20px;width:100%;height:100%;min-height:180px;justify-content:center}
+.port-ph .phi{font-size:26px;opacity:.35}
+.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(29,70,64,.65) 0%,transparent 55%);display:flex;align-items:flex-end;padding:18px;opacity:0;transition:opacity .3s}
+.port-item:hover .port-ov{opacity:1}
+.port-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+
+/* PACKAGE */
+.package{background:var(--cream)}
+.pkg-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start}
+@media(max-width:900px){.pkg-layout{grid-template-columns:1fr;gap:48px}}
+.pkg-left{position:sticky;top:88px}
+.price-wrap{margin:32px 0}
+.price-script{font-family:'Great Vibes',cursive;font-size:24px;color:var(--teal);display:block;margin-bottom:-8px}
+.price-num{font-family:'Cormorant Garamond',serif;font-size:88px;font-weight:300;color:var(--ink);line-height:1}
+.price-num sup{font-size:32px;vertical-align:super}
+.price-note{font-size:12px;color:var(--muted);letter-spacing:.1em;margin-top:4px;display:block}
+.pkg-cta{margin-top:28px}
+.pkg-cta .btn-teal{width:100%;text-align:center;display:block}
+.pay-split{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.65}
+.pay-split strong{color:var(--teal);font-weight:400}
+.delivs{border-top:1px solid rgba(74,138,130,.15)}
+.deliv{display:grid;grid-template-columns:40px 1fr;gap:18px;padding:26px 0;border-bottom:1px solid rgba(74,138,130,.1);align-items:start;transition:padding-left .2s}
+.deliv:hover{padding-left:8px}
+.deliv-n{font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--teal-pale);padding-top:3px}
+.deliv-t strong{display:block;font-size:15px;font-weight:400;color:var(--ink);margin-bottom:5px}
+.deliv-t p{font-size:13px;color:var(--muted);line-height:1.65}
+.approach-box{margin-top:28px;padding:24px 28px;background:linear-gradient(135deg,rgba(74,138,130,.07),rgba(122,181,172,.04));border-left:2px solid var(--teal)}
+.approach-box h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--ink);margin-bottom:8px}
+.approach-box h4 em{font-style:italic;color:var(--teal)}
+.approach-box p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* PROOF */
+.proof{background:var(--teal-deep)}
+.proof .s-eye{color:rgba(200,221,215,.7)}
+.proof .s-eye::before{background:rgba(200,221,215,.35)}
+.proof .s-title{color:var(--petal)}
+.proof-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;margin-top:60px}
+@media(max-width:900px){.proof-layout{grid-template-columns:1fr;gap:40px}}
+.ads-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,221,215,.12)}
+.ads-top{padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center}
+.ads-platform{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.ads-live{font-size:11px;color:#6ed49a;display:flex;align-items:center;gap:6px}
+.ads-live::before{content:'';width:6px;height:6px;background:#6ed49a;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.ads-big{padding:32px 22px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.ads-big-n{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:rgba(200,221,215,.9);line-height:1}
+.ads-big-l{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:6px}
+.ads-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.ads-metric{padding:18px 22px;background:rgba(45,99,88,.4);text-align:center}
+.ads-metric .mv{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(200,221,215,.9);display:block}
+.ads-metric .mk{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-top:3px;display:block}
+.ads-foot{padding:12px 22px;text-align:center;font-size:11px;color:rgba(255,255,255,.2);font-style:italic}
+.proof-pts{display:flex;flex-direction:column}
+.proof-pt{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(200,221,215,.1)}
+.proof-pt:last-child{border-bottom:none}
+.proof-pt-n{font-family:'Great Vibes',cursive;font-size:36px;color:rgba(122,181,172,.3);min-width:36px;line-height:1}
+.proof-pt strong{display:block;font-size:15px;font-weight:400;color:var(--petal);margin-bottom:5px}
+.proof-pt span{font-size:13px;color:rgba(200,221,215,.5);line-height:1.7}
+
+/* PROCESS */
+.process{background:var(--mist)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:60px;border:1px solid rgba(74,138,130,.12)}
+@media(max-width:900px){.process-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.process-steps{grid-template-columns:1fr}}
+.ps{padding:36px 28px;border-right:1px solid rgba(74,138,130,.12);position:relative}
+.ps:last-child{border-right:none}
+.ps-n{font-family:'Great Vibes',cursive;font-size:52px;color:rgba(74,138,130,.15);line-height:1;margin-bottom:16px;display:block}
+.ps-t{font-size:14px;font-weight:400;color:var(--ink);margin-bottom:8px}
+.ps-d{font-size:12px;color:var(--muted);line-height:1.65}
+.ps-arr{position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:26px;height:26px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:white;font-size:11px;z-index:2}
+.ps:last-child .ps-arr{display:none}
+
+/* TESTIMONIAL */
+.testi{padding:100px 52px;background:linear-gradient(135deg,var(--sage) 0%,var(--petal) 60%,rgba(200,221,215,.4) 100%);position:relative;overflow:hidden}
+@media(max-width:768px){.testi{padding:70px 24px}}
+.testi::before{content:'"';position:absolute;top:-80px;left:32px;font-family:'Great Vibes',cursive;font-size:300px;color:rgba(74,138,130,.07);line-height:1;pointer-events:none}
+.testi-inner{max-width:700px;margin:0 auto;text-align:center;position:relative}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.2vw,36px);font-style:italic;font-weight:300;color:var(--teal-deep);line-height:1.5;margin-bottom:32px}
+.testi-who{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.testi-ph{display:inline-block;border:1px dashed rgba(74,138,130,.3);padding:12px 24px;font-size:12px;color:var(--teal);margin-top:12px;font-style:italic}
+
+/* CONTACT */
+.contact{background:var(--cream)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+@media(max-width:900px){.contact-layout{grid-template-columns:1fr;gap:48px}}
+.c-details{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.c-detail{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted)}
+.c-icon{width:38px;height:38px;border:1px solid rgba(74,138,130,.18);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:rgba(200,221,215,.15)}
+.cf{display:flex;flex-direction:column;gap:14px}
+.cf-g{display:flex;flex-direction:column;gap:6px}
+.cf-l{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.cf-i,.cf-s,.cf-ta{width:100%;background:white;border:none;border-bottom:1.5px solid rgba(74,138,130,.18);padding:12px 4px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s}
+.cf-i:focus,.cf-s:focus,.cf-ta:focus{border-color:var(--teal)}
+.cf-ta{min-height:100px;resize:vertical}
+.cf-btn{width:100%;background:var(--teal);color:white;border:none;padding:15px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .25s;margin-top:6px}
+.cf-btn:hover{background:var(--teal-deep)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+@media(max-width:768px){footer{padding:24px}}
+.foot-brand{display:flex;flex-direction:column;line-height:1.1}
+.foot-sub{font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-pale)}
+.foot-name{font-family:'Great Vibes',cursive;font-size:24px;color:rgba(200,221,215,.9)}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ANIMATIONS */
+@keyframes driftUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@media(max-width:1024px){#cur,#curR{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-sub">Studio</span>
+    <span class="logo-main">Elise</span>
+  </a>
+  <div class="nav-links">
+    <a href="#serve">Who We Serve</a>
+    <a href="#portfolio">Work</a>
+    <a href="#package">Package</a>
+    <a href="#contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="petal" style="left:8%;animation-duration:14s;animation-delay:0s;width:50px;height:50px;"></div>
+  <div class="petal" style="left:25%;animation-duration:18s;animation-delay:3s;width:35px;height:35px;"></div>
+  <div class="petal" style="left:62%;animation-duration:16s;animation-delay:1.5s;width:60px;height:60px;"></div>
+  <div class="petal" style="left:80%;animation-duration:20s;animation-delay:5s;width:45px;height:45px;"></div>
+  <div class="petal" style="left:45%;animation-duration:22s;animation-delay:8s;width:28px;height:28px;"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">San Jose, CA · Local Business Content</div>
+    <div class="hero-script">Studio Elise</div>
+    <h1 class="hero-serif">Content <em>designed to get</em><br>customers through the door.</h1>
+    <p class="hero-tagline">
+      Real photos. Real videos. Ads built around your customer — not just what looks good. One shoot day. Content that works all year.
+      <span class="es">Contenido real para tu negocio.</span>
+    </p>
+    <p class="hero-industries">Beauty · Restaurants · Bars · Fitness · Retail · Home Services</p>
+    <div class="hero-btns">
+      <a href="#package" class="btn-teal">See the Package</a>
+      <a href="#portfolio" class="btn-outline">View Work</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-visual-fade"></div>
+    <div class="hero-visual-bg">
+      <div class="hero-ph">
+        <span class="phi">📸</span>
+        <p style="opacity:.45;font-size:12px;">Add your best<br>business photo here</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof-badge">
+    <strong>$3.63</strong>
+    <span>per lead · past campaign</span>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item">More Foot Traffic <span class="tdot">✦</span></span>
+      <span class="ticker-item">More Bookings <span class="tdot">✦</span></span>
+      <span class="ticker-item">Real Photos & Videos <span class="tdot">✦</span></span>
+      <span class="ticker-item">$745 One-Time <span class="tdot">✦</span></span>
+      <span class="ticker-item">No Monthly Fees <span class="tdot">✦</span></span>
+      <span class="ticker-item">Beauty · Restaurants · Bars · Barbershops · Fitness <span class="tdot">✦</span></span>
+      <span class="ticker-item">San Jose · East SJ · South Bay <span class="tdot">✦</span></span>
+      <span class="ticker-item">More Foot Traffic <span class="tdot">✦</span></span>
+      <span class="ticker-item">More Bookings <span class="tdot">✦</span></span>
+      <span class="ticker-item">Real Photos & Videos <span class="tdot">✦</span></span>
+      <span class="ticker-item">$745 One-Time <span class="tdot">✦</span></span>
+      <span class="ticker-item">No Monthly Fees <span class="tdot">✦</span></span>
+      <span class="ticker-item">Beauty · Restaurants · Bars · Barbershops · Fitness <span class="tdot">✦</span></span>
+      <span class="ticker-item">San Jose · East SJ · South Bay <span class="tdot">✦</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n">$3.63</div><div class="stat-l">Cost per lead<br>local beauty campaign</div></div>
+  <div class="stat reveal d1"><div class="stat-n">19+</div><div class="stat-l">Leads in 30 days<br>$5/day spend</div></div>
+  <div class="stat reveal d2"><div class="stat-n">$745</div><div class="stat-l">One-time flat fee<br>no monthly commitment</div></div>
+  <div class="stat reveal d3"><div class="stat-n">1 day</div><div class="stat-l">Shoot day →<br>content for 12 months</div></div>
+</div>
+
+<!-- SERVE -->
+<section class="s-wrap serve" id="serve">
+  <div class="serve-header">
+    <div class="reveal">
+      <p class="s-eye">Who this is for</p>
+      <h2 class="s-title">Built for local<br><em>businesses.</em></h2>
+    </div>
+    <p class="s-body reveal d1">Pretty content is everywhere. What moves customers is content that shows them exactly why your business is worth choosing. We shoot with that in mind — every photo, every video, every ad. Real work, done right.</p>
+  </div>
+  <div class="serve-grid reveal">
+    <div class="serve-card"><span class="serve-icon">💅</span><p class="serve-name">Beauty & Nail Salons</p><p class="serve-desc">Nail salons, estheticians, spas, waxing, eyelash, hair studios</p></div>
+    <div class="serve-card"><span class="serve-icon">✂️</span><p class="serve-name">Barbershops</p><p class="serve-desc">Men's cuts, fades, lineups — especially popular with young Latino clientele in East SJ</p></div>
+    <div class="serve-card"><span class="serve-icon">🌮</span><p class="serve-name">Restaurants & Food</p><p class="serve-desc">Taquerias, pupuserías, panaderías, food trucks, family restaurants, coffee shops</p></div>
+    <div class="serve-card"><span class="serve-icon">🍹</span><p class="serve-name">Bars & Cantinas</p><p class="serve-desc">Cocktail bars, cantinas, sports bars, lounges, breweries — content that fills seats</p></div>
+    <div class="serve-card"><span class="serve-icon">🏋️</span><p class="serve-name">Fitness & Health</p><p class="serve-desc">Gyms, yoga studios, personal trainers, boxing, wellness coaches</p></div>
+    <div class="serve-card"><span class="serve-icon">🏠</span><p class="serve-name">Home Services</p><p class="serve-desc">Remodeling, landscaping, cleaning, painting, interior design</p></div>
+    <div class="serve-card"><span class="serve-icon">🎉</span><p class="serve-name">Events & Entertainment</p><p class="serve-desc">Event venues, quinceañeras, DJs, party planning, catering</p></div>
+    <div class="serve-card"><span class="serve-icon">🛍️</span><p class="serve-name">Retail & Services</p><p class="serve-desc">Boutiques, specialty shops, tutoring, beauty schools, professional services</p></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="s-wrap portfolio" id="portfolio">
+  <p class="port-label reveal">Selected work</p>
+  <div class="port-grid reveal">
+    <div class="port-item tall" style="background:linear-gradient(145deg,#c8ddd7,#8ab5ac);">
+      <div class="port-ph"><span class="phi">📸</span><p>Add tall portrait<br>(beauty / nail salon)</p></div>
+      <div class="port-ov"><span class="port-tag">Beauty & Nail</span></div>
+    </div>
+    <div class="port-item" style="background:linear-gradient(145deg,#b8d4c8,#7aa89c);">
+      <div class="port-ph"><span class="phi">🎬</span><p>Reel thumbnail<br>(restaurant / food)</p></div>
+      <div class="port-ov"><span class="port-tag">Restaurant Reel</span></div>
+    </div>
+    <div class="port-item" style="background:linear-gradient(145deg,#c4d8d4,#88b0a8);">
+      <div class="port-ph"><span class="phi">📸</span><p>Product / brand shot</p></div>
+      <div class="port-ov"><span class="port-tag">Brand Content</span></div>
+    </div>
+    <div class="port-item" style="background:linear-gradient(145deg,#d4e4e0,#90bab4);">
+      <div class="port-ph"><span class="phi">🎬</span><p>Fitness reel thumbnail</p></div>
+      <div class="port-ov"><span class="port-tag">Fitness & Wellness</span></div>
+    </div>
+    <div class="port-item" style="background:linear-gradient(145deg,#bcd4ce,#7aaaa4);">
+      <div class="port-ph"><span class="phi">📸</span><p>Interior / lifestyle shot</p></div>
+      <div class="port-ov"><span class="port-tag">Lifestyle</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGE -->
+<section class="s-wrap package" id="package">
+  <div class="pkg-layout">
+    <div class="pkg-left reveal">
+      <p class="s-eye">The offer</p>
+      <h2 class="s-title">One package.<br><em>Everything included.</em></h2>
+      <div class="price-wrap">
+        <span class="price-script">flat fee</span>
+        <div class="price-num"><sup>$</sup>745</div>
+        <span class="price-note">one-time · no recurring fees</span>
+      </div>
+      <div class="pkg-cta">
+        <a href="#contact" class="btn-teal">Book Your Shoot Day</a>
+        <p class="pay-split"><strong>Flexible:</strong> $400 before shoot · $345 on delivery</p>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <div class="delivs">
+        <div class="deliv"><span class="deliv-n">01</span><div class="deliv-t"><strong>1 Full Shoot Day — at your location</strong><p>Photo + video in one visit, planned around what makes people walk in or pick up the phone. You keep running your business while I work.</p></div></div>
+        <div class="deliv"><span class="deliv-n">02</span><div class="deliv-t"><strong>30–40 Edited Photos → More foot traffic</strong><p>Shot to show your space, your food, your vibe — the way people need to see it before they decide to come in.</p></div></div>
+        <div class="deliv"><span class="deliv-n">03</span><div class="deliv-t"><strong>5 Short-Form Videos → More bookings</strong><p>30–60 seconds, built to stop the scroll and drive action. Real footage of your business — no AI, no stock.</p></div></div>
+        <div class="deliv"><span class="deliv-n">04</span><div class="deliv-t"><strong>5 Custom Posters → Promotions that get noticed</strong><p>Promos, specials, seasonal deals — designed to communicate your offer clearly and drive people to act.</p></div></div>
+        <div class="deliv"><span class="deliv-n">05</span><div class="deliv-t"><strong>Ads Setup → Reach locals who don't know you yet</strong><p>Facebook & Instagram campaign targeted to your neighborhood — built using the same approach that got us $3.63/lead. You own it completely.</p></div></div>
+        <div class="deliv"><span class="deliv-n">06</span><div class="deliv-t"><strong>Training + 3-Month Content Calendar</strong><p>A walkthrough so you can post and run ads confidently on your own — no guessing, no dependency.</p></div></div>
+      </div>
+      <div class="approach-box">
+        <h4>Our approach <em>in action.</em></h4>
+        <p>On a local San Jose beauty campaign — $5/day ad spend, real creative, focused targeting — we hit $3.63/lead. We bring that same thinking to every setup. Results vary by business and budget, but the strategy is always deliberate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="s-wrap proof" id="results">
+  <p class="s-eye reveal">Past results</p>
+  <h2 class="s-title reveal">What the right<br><em>strategy looks like.</em></h2>
+  <div class="proof-layout">
+    <div class="ads-card reveal">
+      <div class="ads-top">
+        <span class="ads-platform">Facebook Ads Manager · Feb–Mar 2026</span>
+        <span class="ads-live">Active</span>
+      </div>
+      <div class="ads-big">
+        <div class="ads-big-n">$3.63</div>
+        <div class="ads-big-l">Cost per lead</div>
+      </div>
+      <div class="ads-grid">
+        <div class="ads-metric"><span class="mv">19</span><span class="mk">Total leads</span></div>
+        <div class="ads-metric"><span class="mv">$5</span><span class="mk">Daily budget</span></div>
+        <div class="ads-metric"><span class="mv">11.2k</span><span class="mk">Reached</span></div>
+        <div class="ads-metric"><span class="mv">$2.28</span><span class="mk">Per 1k reach</span></div>
+      </div>
+      <div class="ads-foot">Client name blurred · Local beauty business, San Jose CA</div>
+    </div>
+    <div class="proof-pts reveal d1">
+      <div class="proof-pt"><div class="proof-pt-n">1</div><div><strong>$3.63/lead — here's how we did it</strong><span>San Jose beauty school. $5/day, focused targeting, real creative. Not luck — a repeatable approach we bring to every campaign.</span></div></div>
+      <div class="proof-pt"><div class="proof-pt-n">2</div><div><strong>Budget isn't the variable — strategy is</strong><span>Every business is different. But customer-first creative and targeted local reach is the thinking we apply every time.</span></div></div>
+      <div class="proof-pt"><div class="proof-pt-n">3</div><div><strong>11,194 local people reached</strong><span>Targeted to the right zip codes — so spend reaches people who are actually likely to walk in or book.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="s-wrap process">
+  <p class="s-eye reveal">How it works</p>
+  <h2 class="s-title reveal">Four steps.<br><em>That's it.</em></h2>
+  <div class="process-steps reveal">
+    <div class="ps"><span class="ps-n">1</span><p class="ps-t">Free 15-min call</p><p class="ps-d">Tell me about your business. No pressure, no pitch — just a conversation.</p><div class="ps-arr">→</div></div>
+    <div class="ps"><span class="ps-n">2</span><p class="ps-t">Shoot day at your place</p><p class="ps-d">I come to you. One day of photo + video while you run your business normally.</p><div class="ps-arr">→</div></div>
+    <div class="ps"><span class="ps-n">3</span><p class="ps-t">Content in 7 days</p><p class="ps-d">Edited photos, videos, posters, and a built ads campaign — delivered and ready.</p><div class="ps-arr">→</div></div>
+    <div class="ps"><span class="ps-n">4</span><p class="ps-t">You run it, I support</p><p class="ps-d">Quick training so you own your content and ads completely.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi">
+  <div class="testi-inner reveal">
+    <p class="testi-q">"Add a real quote from Diva Beauty School or your first client here — just 1–2 sentences builds immediate trust."</p>
+    <p class="testi-who">— Client Name · Business Name, San Jose CA</p>
+    <div class="testi-ph">[ Replace with real testimonial ]</div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi">
+  <div class="testi-inner reveal">
+    <p class="testi-q">"Antes no teníamos presencia en redes sociales. Después del shoot, empezamos a recibir más llamadas y la gente llegaba diciendo que nos encontró en Instagram. Fue la mejor inversión que hicimos para el negocio."</p>
+    <p class="testi-who">— Alejandra R. · Owner, La Esperanza Panadería · Story Road, San Jose CA</p>
+    <div class="testi-ph">[ Replace with real testimonial from your first client ]</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="s-wrap contact" id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <p class="s-eye">Get started</p>
+      <h2 class="s-title">Let's talk about<br>your <em>business.</em></h2>
+      <div class="c-details">
+        <div class="c-detail"><span class="c-icon">📍</span>San Jose, CA — available across South Bay</div>
+        <div class="c-detail"><span class="c-icon">📱</span>DM: @StudioElise</div>
+        <div class="c-detail"><span class="c-icon">📧</span>hello@studioelise.com</div>
+        <div class="c-detail"><span class="c-icon">🗣️</span>English · Tiếng Việt · Español (basic)</div>
+      </div>
+    </div>
+    <div class="cf reveal d1">
+      <div class="cf-g"><label class="cf-l">Your name</label><input type="text" class="cf-i" placeholder="Maria Garcia"></div>
+      <div class="cf-g"><label class="cf-l">Business name</label><input type="text" class="cf-i" placeholder="Maria's Beauty Studio"></div>
+      <div class="cf-g"><label class="cf-l">Industry</label>
+        <select class="cf-s">
+          <option value="">Select your industry...</option>
+          <option>Beauty / Nail Salon / Spa</option>
+          <option>Barbershop / Hair Salon</option>
+          <option>Restaurant / Taqueria / Food Truck</option>
+          <option>Bar / Cantina / Nightlife</option>
+          <option>Fitness / Wellness</option>
+          <option>Retail / Boutique</option>
+          <option>Home Services</option>
+          <option>Events / Entertainment</option>
+          <option>Education / Training</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cf-g"><label class="cf-l">Phone or email</label><input type="text" class="cf-i" placeholder="(408) 555-0123 or email@gmail.com"></div>
+      <div class="cf-g"><label class="cf-l">Tell me about your business</label><textarea class="cf-ta" placeholder="What's your biggest challenge with social media right now?"></textarea></div>
+      <button class="cf-btn">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <span class="foot-sub">Studio</span>
+    <span class="foot-name">Elise</span>
+  </div>
+  <span class="foot-copy">© 2026 StudioElise.com · San Jose, CA</span>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='48px';curR.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';curR.style.width='32px';curR.style.height='32px';});
+});
+const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
