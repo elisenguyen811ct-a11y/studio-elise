@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Studio Elise helps San Jose and South Bay local businesses create real photo, video, and ads content that brings in customers.">
 <title>Studio Elise — Content & Growth for Local Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,6 +190,22 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 .contact{background:rgba(234,242,239,.64)}.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}.c-details{display:flex;flex-direction:column;gap:14px;margin-top:32px}.c-detail{display:flex;align-items:center;gap:14px;font-size:14px;color:var(--muted)}.c-icon{width:40px;height:40px;border:1px solid rgba(74,138,130,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:rgba(255,255,255,.55)}.c-wa-block{margin-top:28px;padding:20px;background:var(--teal-deep);border-radius:24px;display:flex;align-items:center;gap:16px}.wa-text strong{display:block;font-size:14px;color:white;font-weight:500;margin-bottom:2px}.wa-text span{font-size:12px;color:rgba(221,240,236,.6)}.c-wa-block a{margin-left:auto;background:#25D366;color:white;padding:11px 18px;border-radius:999px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap}.cf{display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.62);border:1px solid rgba(74,138,130,.13);border-radius:30px;padding:28px;box-shadow:0 18px 48px rgba(22,43,41,.07)}.cf-g{display:flex;flex-direction:column;gap:7px}.cf-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.cf-i,.cf-s,.cf-ta{width:100%;background:rgba(247,251,249,.7);border:1px solid rgba(74,138,130,.14);border-radius:16px;padding:13px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:.2s}.cf-i:focus,.cf-s:focus,.cf-ta:focus{border-color:var(--teal);background:white}.cf-ta{min-height:116px;resize:vertical}.cf-btn{width:100%;background:var(--teal-deep);color:white;border:none;border-radius:999px;padding:16px;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.25s;margin-top:6px}.cf-btn:hover{background:var(--teal-dark);transform:translateY(-1px)}
 @media(max-width:920px){.contact-layout{grid-template-columns:1fr;gap:38px}.c-wa-block{align-items:flex-start;flex-direction:column}.c-wa-block a{margin-left:0;width:100%;text-align:center}}
 
+
+.form-status{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.5;
+  color:var(--muted);
+  text-align:center;
+}
+.form-status.ok{color:var(--teal-deep)}
+.form-status.error{color:#9e4a33}
+.cf-btn:disabled{
+  opacity:.65;
+  cursor:not-allowed;
+  transform:none!important;
+}
+
 /* FOOTER */
 footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.foot-brand{display:flex;flex-direction:column;line-height:1.1}.foot-sub{font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:var(--teal-pale)}.foot-name{font-family:'Great Vibes',cursive;font-size:26px;color:rgba(221,240,236,.92)}.foot-copy{font-size:11px;color:rgba(255,255,255,.24)}@media(max-width:768px){footer{padding:24px}}
 
@@ -200,7 +217,7 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
+<body id="top">
 <div class="site-bg" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div class="petal" style="left:8%;animation-duration:15s;width:40px;height:40px;"></div>
 <div class="petal" style="left:23%;animation-duration:20s;animation-delay:2s;width:24px;height:24px;"></div>
@@ -212,7 +229,7 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 <div class="cursor-ring" id="curR"></div>
 
 <nav>
-  <a href="#" class="logo" aria-label="Studio Elise home">
+  <a href="#top" class="logo" aria-label="Studio Elise home">
     <span class="logo-mark">E</span>
     <span class="logo-text"><span class="logo-sub">Studio</span><span class="logo-main">Elise</span></span>
   </a>
@@ -374,7 +391,44 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 
 <section class="s-wrap contact" id="contact"><div class="inner"><div class="contact-layout">
   <div class="reveal"><p class="s-eye">Get started</p><h2 class="s-title">Let's talk about<br>your <em>business.</em></h2><div class="c-details"><div class="c-detail"><span class="c-icon">📍</span>San Jose, CA — available across South Bay</div><div class="c-detail"><span class="c-icon">📧</span>elise.nguyen811ct@gmail.com</div><div class="c-detail"><span class="c-icon">🗣️</span>English · Tiếng Việt · Español (basic)</div></div><div class="c-wa-block"><span style="font-size:24px;">💬</span><div class="wa-text"><strong>Fastest way to reach us</strong><span>We reply within a few hours</span></div><a href="https://wa.me/13162578025?text=Hi%20Studio%20Elise,%20I%27m%20interested%20in%20the%20package!" target="_blank" rel="noopener">WhatsApp →</a></div></div>
-  <form class="cf reveal d1" onsubmit="sendForm(event)"><div class="cf-g"><label class="cf-l">Your name</label><input type="text" class="cf-i" placeholder="Maria Garcia" required></div><div class="cf-g"><label class="cf-l">Business name</label><input type="text" class="cf-i" placeholder="Maria's Taqueria"></div><div class="cf-g"><label class="cf-l">Industry</label><select class="cf-s"><option value="">Select your industry...</option><option>Beauty / Nail Salon / Spa</option><option>Barbershop / Hair Salon</option><option>Restaurant / Taqueria / Food Truck</option><option>Bar / Cantina / Nightlife</option><option>Fitness / Wellness</option><option>Retail / Boutique</option><option>Home Services</option><option>Events / Entertainment</option><option>Other</option></select></div><div class="cf-g"><label class="cf-l">Phone or email</label><input type="text" class="cf-i" placeholder="(408) 555-0123 or email@gmail.com" required></div><div class="cf-g"><label class="cf-l">Tell me about your business</label><textarea class="cf-ta" placeholder="What's your biggest challenge with getting new customers right now?"></textarea></div><button class="cf-btn">Send Message →</button></form>
+  <form class="cf reveal d1" id="leadForm" action="https://formspree.io/f/meedpdqb" method="POST" onsubmit="sendForm(event)">
+    <input type="hidden" name="_subject" value="New Studio Elise inquiry - English">
+    <input type="hidden" name="_language" value="English">
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="cf-g">
+      <label class="cf-l" for="name">Your name</label>
+      <input type="text" id="name" name="name" class="cf-i" placeholder="Maria Garcia" autocomplete="name" required>
+    </div>
+    <div class="cf-g">
+      <label class="cf-l" for="business">Business name</label>
+      <input type="text" id="business" name="business" class="cf-i" placeholder="Maria's Taqueria" autocomplete="organization">
+    </div>
+    <div class="cf-g">
+      <label class="cf-l" for="industry">Industry</label>
+      <select id="industry" name="industry" class="cf-s">
+        <option value="">Select your industry...</option>
+        <option>Beauty / Nail Salon / Spa</option>
+        <option>Barbershop / Hair Salon</option>
+        <option>Restaurant / Taqueria / Food Truck</option>
+        <option>Bar / Cantina / Nightlife</option>
+        <option>Fitness / Wellness</option>
+        <option>Retail / Boutique</option>
+        <option>Home Services</option>
+        <option>Events / Entertainment</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="cf-g">
+      <label class="cf-l" for="contactInfo">Phone or email</label>
+      <input type="text" id="contactInfo" name="contact" class="cf-i" placeholder="(408) 555-0123 or email@gmail.com" autocomplete="email" required>
+    </div>
+    <div class="cf-g">
+      <label class="cf-l" for="message">Tell me about your business</label>
+      <textarea id="message" name="message" class="cf-ta" placeholder="What's your biggest challenge with getting new customers right now?"></textarea>
+    </div>
+    <button class="cf-btn" type="submit">Send Message →</button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
 </div></div></section>
 
 <footer><div class="foot-brand"><span class="foot-sub">Studio</span><span class="foot-name">Elise</span></div><span class="foot-copy">© 2026 StudioElise.com · San Jose, CA</span></footer>
@@ -395,8 +449,56 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // FAQ accordion
 function toggleFaq(btn){const ans=btn.nextElementSibling;const isOpen=ans.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(a=>{a.classList.remove('open');a.previousElementSibling.classList.remove('open');});if(!isOpen){ans.classList.add('open');btn.classList.add('open');}}
 
-// Basic form fallback: opens email draft.
-function sendForm(e){e.preventDefault();const form=e.currentTarget;const values=[...form.querySelectorAll('input,select,textarea')].map(el=>el.value.trim());const subject=encodeURIComponent('Studio Elise inquiry');const body=encodeURIComponent(`Name: ${values[0]}\nBusiness: ${values[1]}\nIndustry: ${values[2]}\nContact: ${values[3]}\nMessage: ${values[4]}`);window.location.href=`mailto:elise.nguyen811ct@gmail.com?subject=${subject}&body=${body}`;}
+// Formspree AJAX form submission
+async function sendForm(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const status = form.querySelector('.form-status');
+  const submitBtn = form.querySelector('button[type="submit"], .cf-btn');
+  const originalText = submitBtn ? submitBtn.textContent : '';
+
+  if (status) {
+    status.textContent = 'Sending...';
+    status.className = 'form-status';
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+  }
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+      if (status) {
+        status.textContent = 'Thank you! Your message has been sent.';
+        status.classList.add('ok');
+      }
+    } else {
+      if (status) {
+        status.textContent = 'Something went wrong. Please try again or message us on WhatsApp.';
+        status.classList.add('error');
+      }
+    }
+  } catch (error) {
+    if (status) {
+      status.textContent = 'Could not send the form. Please check your connection or message us on WhatsApp.';
+      status.classList.add('error');
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  }
+}
 </script>
 </body>
 </html>
