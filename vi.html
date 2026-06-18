@@ -111,6 +111,11 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
   radial-gradient(circle at 70% 25%,rgba(255,255,255,.36),transparent 25%),
   linear-gradient(145deg,rgba(200,221,215,.8),rgba(122,181,172,.7))}
 .photo-fill .ico{font-size:38px;opacity:.45}
+.photo-card.loaded .photo-fill{display:none}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(1.04) contrast(1.02)}
+.photo-card.main .hero-img{object-position:center}
+.photo-card.top .hero-img{object-position:center}
+.photo-card.side .hero-img{object-position:center}
 .media-badge{position:absolute;right:8%;bottom:34px;z-index:4;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border:1px solid rgba(74,138,130,.16);border-radius:24px;padding:18px 22px;box-shadow:0 20px 48px rgba(22,43,41,.14)}
 .media-badge strong{font-family:'Cormorant Garamond',serif;font-size:43px;font-weight:300;color:var(--teal-deep);line-height:1;display:block}
 .media-badge span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
@@ -163,7 +168,7 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 
 /* PORTFOLIO */
 .portfolio{background:rgba(234,242,239,.64)}
-.port-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}.port-note{font-size:13px;color:var(--muted);line-height:1.7;max-width:420px}.port-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}.port-item{position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(145deg,#c8ddd7,#7ab5ac);box-shadow:0 16px 46px rgba(22,43,41,.08);transition:.35s}.port-item:hover{transform:translateY(-5px)}.port-item.tall{grid-row:span 2}.port-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(22,43,41,.48);font-size:12px;text-align:center;padding:20px;width:100%;height:100%;justify-content:center;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.3),transparent 25%)}.port-ph .phi{font-size:28px;opacity:.45}.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,60,55,.74),transparent 58%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:.3s}.port-item:hover .port-ov{opacity:1}.port-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:white}
+.port-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}.port-note{font-size:13px;color:var(--muted);line-height:1.7;max-width:420px}.port-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}.port-item{position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(145deg,#c8ddd7,#7ab5ac);box-shadow:0 16px 46px rgba(22,43,41,.08);transition:.35s}.port-item:hover{transform:translateY(-5px)}.port-item.tall{grid-row:span 2}.port-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(22,43,41,.48);font-size:12px;text-align:center;padding:20px;width:100%;height:100%;justify-content:center;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.3),transparent 25%)}.port-ph .phi{font-size:28px;opacity:.45}.port-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(1.04) contrast(1.02)}.port-item.loaded .port-ph{display:none}.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,60,55,.74),transparent 58%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:.3s}.port-item:hover .port-ov{opacity:1}.port-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:white}
 @media(max-width:900px){.port-head{display:block}.port-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.port-item{min-height:220px}.port-item.tall{grid-row:span 1}}@media(max-width:520px){.port-grid{grid-template-columns:1fr}}
 
 /* PACKAGE */
@@ -272,9 +277,9 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
   <div class="hero-media" aria-label="portfolio image placeholders">
     <div class="spark s1"></div><div class="spark s2"></div><div class="spark s3"></div>
     <div class="photo-stack">
-      <div class="photo-card top"><div class="photo-fill"><span class="ico">✨</span><span>Thêm ảnh chi tiết</span></div></div>
-      <div class="photo-card main"><div class="photo-fill"><span class="ico">📸</span><span>Thêm ảnh đẹp nhất của doanh nghiệp<br>Gợi ý: ảnh dọc 4:5</span></div></div>
-      <div class="photo-card side"><div class="photo-fill"><span class="ico">🎬</span><span>Thêm thumbnail Reel</span></div></div>
+      <div class="photo-card top"><img class="hero-img" src="./hero-detail.jpg" alt="Ảnh chi tiết của Studio Elise" loading="eager" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="photo-fill"><span class="ico">✨</span><span>Thêm ảnh chi tiết</span></div></div>
+      <div class="photo-card main"><img class="hero-img" src="./hero-main.jpg" alt="Ảnh nổi bật của doanh nghiệp" loading="eager" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="photo-fill"><span class="ico">📸</span><span>Thêm ảnh đẹp nhất của doanh nghiệp<br>Gợi ý: ảnh dọc 4:5</span></div></div>
+      <div class="photo-card side"><img class="hero-img" src="./hero-reel.jpg" alt="Thumbnail reel của Studio Elise" loading="eager" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="photo-fill"><span class="ico">🎬</span><span>Thêm thumbnail Reel</span></div></div>
     </div>
     <div class="media-badge"><strong>$4.68</strong><span>mỗi lead · chiến dịch trước</span></div>
   </div>
@@ -333,11 +338,11 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 <section class="s-wrap portfolio" id="portfolio"><div class="inner">
   <div class="port-head reveal"><div><p class="s-eye">Dự án mẫu</p><h2 class="s-title">Thay bằng<br><em>hình thật của khách.</em></h2></div><p class="port-note">Layout này được set sẵn để bạn add ảnh sau. Dùng ảnh thật của tiệm, món ăn, nhân viên và không gian để tăng độ tin tưởng.</p></div>
   <div class="port-grid reveal">
-    <div class="port-item tall"><div class="port-ph"><span class="phi">📸</span><p>Thêm ảnh dọc<br>beauty / nail salon</p></div><div class="port-ov"><span class="port-tag">Beauty & Nail</span></div></div>
-    <div class="port-item"><div class="port-ph"><span class="phi">🎬</span><p>Thumbnail Reel<br>nhà hàng / đồ ăn</p></div><div class="port-ov"><span class="port-tag">Restaurant Reel</span></div></div>
-    <div class="port-item"><div class="port-ph"><span class="phi">📸</span><p>Ảnh bar / cantina</p></div><div class="port-ov"><span class="port-tag">Bar & Nightlife</span></div></div>
-    <div class="port-item"><div class="port-ph"><span class="phi">🎬</span><p>Reel barbershop</p></div><div class="port-ov"><span class="port-tag">Barbershop</span></div></div>
-    <div class="port-item"><div class="port-ph"><span class="phi">📸</span><p>Ảnh fitness / lifestyle</p></div><div class="port-ov"><span class="port-tag">Fitness & Wellness</span></div></div>
+    <div class="port-item tall"><img class="port-img" src="./portfolio-beauty.jpg" alt="Ảnh dọc beauty hoặc nail salon" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Thêm ảnh dọc<br>beauty / nail salon</p></div><div class="port-ov"><span class="port-tag">Beauty & Nail</span></div></div>
+    <div class="port-item"><img class="port-img" src="./portfolio-food.jpg" alt="Thumbnail reel nhà hàng hoặc đồ ăn" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Thumbnail Reel<br>nhà hàng / đồ ăn</p></div><div class="port-ov"><span class="port-tag">Restaurant Reel</span></div></div>
+    <div class="port-item"><img class="port-img" src="./portfolio-bar.jpg" alt="Ảnh bar hoặc cantina" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Ảnh bar / cantina</p></div><div class="port-ov"><span class="port-tag">Bar & Nightlife</span></div></div>
+    <div class="port-item"><img class="port-img" src="./portfolio-barber.jpg" alt="Thumbnail reel barbershop" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Reel barbershop</p></div><div class="port-ov"><span class="port-tag">Barbershop</span></div></div>
+    <div class="port-item"><img class="port-img" src="./portfolio-fitness.jpg" alt="Ảnh fitness hoặc lifestyle" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Ảnh fitness / lifestyle</p></div><div class="port-ov"><span class="port-tag">Fitness & Wellness</span></div></div>
   </div>
 </div></section>
 
