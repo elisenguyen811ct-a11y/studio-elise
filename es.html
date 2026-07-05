@@ -193,8 +193,23 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 @media(max-width:920px){.process-steps{grid-template-columns:1fr 1fr}.ps-arr{display:none}}@media(max-width:560px){.process-steps{grid-template-columns:1fr}}
 
 /* TESTIMONIAL */
-.testi{padding:104px 52px;background:linear-gradient(135deg,var(--sage) 0%,var(--petal) 65%,rgba(255,255,255,.5) 100%);position:relative;overflow:hidden}.testi::before{content:'“';position:absolute;top:-78px;left:32px;font-family:'Great Vibes',cursive;font-size:310px;color:rgba(74,138,130,.08);line-height:1}.testi-inner{max-width:780px;margin:0 auto;text-align:center;position:relative}.testi-q{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,3.3vw,38px);font-style:italic;font-weight:300;color:var(--teal-deep);line-height:1.5;margin-bottom:28px}.testi-who{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}.testi-ph{display:inline-block;border:1px dashed rgba(74,138,130,.3);border-radius:999px;padding:10px 18px;font-size:12px;color:var(--teal);margin-top:14px;font-style:italic}
-@media(max-width:768px){.testi{padding:72px 24px}}
+.testi{padding:104px 52px;background:linear-gradient(135deg,var(--sage) 0%,var(--petal) 65%,rgba(255,255,255,.5) 100%);position:relative;overflow:hidden}
+.testi::before{content:'“';position:absolute;top:-78px;left:32px;font-family:'Great Vibes',cursive;font-size:310px;color:rgba(74,138,130,.08);line-height:1;pointer-events:none}
+.testi-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.testi-head{text-align:center;max-width:760px;margin:0 auto 42px}
+.testi-eye{justify-content:center;margin-bottom:14px}
+.testi-eye::before{display:none}
+.testi-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,58px);font-weight:300;line-height:1.05;color:var(--teal-deep);letter-spacing:-.02em;margin-bottom:12px}
+.testi-sub{font-size:13px;color:var(--muted);line-height:1.7}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-card{background:rgba(255,255,255,.56);border:1px solid rgba(74,138,130,.14);border-radius:28px;padding:28px 24px;box-shadow:0 18px 50px rgba(22,43,41,.07);display:flex;flex-direction:column;min-height:300px;position:relative;overflow:hidden}
+.testi-card::before{content:'“';position:absolute;right:18px;top:-24px;font-family:'Great Vibes',cursive;font-size:92px;color:rgba(74,138,130,.10);line-height:1}
+.testi-kind{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(74,138,130,.08);border:1px solid rgba(74,138,130,.12);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;font-weight:500}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:23px;font-style:italic;font-weight:300;color:var(--teal-deep);line-height:1.48;margin-bottom:24px;position:relative;z-index:1;flex:1}
+.testi-who{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);line-height:1.7;font-weight:500}
+.testi-note{margin-top:26px;text-align:center;font-size:12px;color:var(--teal);font-style:italic;opacity:.76}
+@media(max-width:980px){.testi-grid{grid-template-columns:1fr}.testi-card{min-height:auto}.testi-q{font-size:24px}}
+@media(max-width:768px){.testi{padding:72px 24px}.testi-card{padding:24px 21px}.testi-title{font-size:34px}.testi-q{font-size:22px}}
 
 /* FAQ */
 .faq{background:var(--cream)}.faq-list{margin-top:46px;display:flex;flex-direction:column;gap:10px;max-width:820px}.faq-item{border:1px solid rgba(74,138,130,.12);border-radius:20px;background:rgba(255,255,255,.55);overflow:hidden}.faq-q{width:100%;background:none;border:none;padding:21px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--ink);transition:.2s}.faq-q:hover{color:var(--teal)}.faq-q .icon{font-size:18px;color:var(--teal);transition:transform .3s;flex-shrink:0}.faq-q.open .icon{transform:rotate(45deg)}.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}.faq-a.open{max-height:230px;padding:0 22px 22px}.faq-a p{font-size:14px;color:var(--muted);line-height:1.8}
@@ -390,7 +405,33 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
   <div class="process-steps reveal"><div class="ps"><span class="ps-n">1</span><p class="ps-t">Llamada gratis de 15 min</p><p class="ps-d">Cuéntame de tu negocio y metas. Sin presión.</p><div class="ps-arr">→</div></div><div class="ps"><span class="ps-n">2</span><p class="ps-t">Plan de concepto</p><p class="ps-d">Estudiamos tu espacio, ambiente y audiencia antes de grabar.</p><div class="ps-arr">→</div></div><div class="ps"><span class="ps-n">3</span><p class="ps-t">Un día de producción</p><p class="ps-d">Foto + video en un día con mínima interrupción.</p><div class="ps-arr">→</div></div><div class="ps"><span class="ps-n">4</span><p class="ps-t">Entrega en 7 días</p><p class="ps-d">Contenido + ads setup + training rápido; después tú eres dueño de todo.</p></div></div>
 </div></section>
 
-<section class="testi"><div class="testi-inner reveal"><p class="testi-q">"Antes no teníamos presencia en redes sociales. Después del shoot, empezamos a recibir más llamadas y la gente llegaba diciendo que nos encontró en Instagram."</p><p class="testi-who">— Alejandra R. · Owner, La Esperanza Panadería · Story Road, San Jose CA</p><div class="testi-ph">Reemplaza con un testimonio real de tu primer cliente</div></div></section>
+<section class="testi" id="reviews">
+  <div class="testi-inner reveal">
+    <div class="testi-head">
+      <p class="s-eye testi-eye">Reseñas modelo</p>
+      <h2 class="testi-title">Tres espacios de reseñas listos.</h2>
+      <p class="testi-sub">Estos textos son ejemplos de placeholder para que el diseño se vea completo. Reemplázalos con reseñas reales antes de publicarlos como testimonios.</p>
+    </div>
+    <div class="testi-grid">
+      <article class="testi-card">
+        <span class="testi-kind">Panadería latina</span>
+        <p class="testi-q">"Antes casi no teníamos presencia en redes sociales. Después del shoot, empezamos a recibir más llamadas y la gente llegaba diciendo que nos encontró en Instagram."</p>
+        <p class="testi-who">— Alejandra R. · La Esperanza Panadería · Story Road, San Jose CA</p>
+      </article>
+      <article class="testi-card">
+        <span class="testi-kind">Salón vietnamita</span>
+        <p class="testi-q">"Al principio solo quería algunas fotos bonitas para la página. Después del shoot, el salón se veía mucho más profesional y empezamos a recibir más mensajes para citas."</p>
+        <p class="testi-who">— Linh Tran · Bloom Nails Studio · East Bay, CA</p>
+      </article>
+      <article class="testi-card">
+        <span class="testi-kind">Skin studio americano</span>
+        <p class="testi-q">"Necesitábamos contenido limpio, moderno y fiel a nuestro negocio. Las fotos y videos cortos nos dieron contenido para varias semanas y mejoraron mucho nuestro Instagram."</p>
+        <p class="testi-who">— Amanda Reyes · Meadow Glow Skin Studio · Walnut Creek, CA</p>
+      </article>
+    </div>
+    <p class="testi-note">Ejemplos placeholder · reemplazar con reseñas reales antes de publicar.</p>
+  </div>
+</section>
 
 <section class="s-wrap faq" id="faq"><div class="inner">
   <p class="s-eye reveal">FAQ</p><h2 class="s-title reveal">Preguntas que<br><em>siempre nos hacen.</em></h2>
