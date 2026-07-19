@@ -191,7 +191,7 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 
 /* PORTFOLIO */
 .portfolio{background:var(--cream)}
-.port-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}.port-note{font-size:13px;color:var(--muted);line-height:1.7;max-width:420px}.port-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}.port-item{position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(145deg,#c8ddd7,#7ab5ac);box-shadow:0 16px 46px rgba(22,43,41,.08);transition:.35s;cursor:pointer}.port-item:hover{transform:translateY(-5px)}.port-item.tall{grid-row:span 2}.port-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(22,43,41,.48);font-size:12px;text-align:center;padding:20px;width:100%;height:100%;justify-content:center;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.3),transparent 25%)}.port-ph .phi{font-size:28px;opacity:.45}.port-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(1.04) contrast(1.02)}video.port-img{background:#c8ddd7;object-fit:cover;object-position:center;pointer-events:auto}.port-item.loaded .port-ph{display:none}.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,60,55,.74),transparent 58%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:.3s;pointer-events:none}.port-item:hover .port-ov{opacity:1}.port-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:white}.port-zoom{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(247,251,249,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--teal-deep);z-index:3;opacity:0;transition:.25s;pointer-events:none}.port-item:hover .port-zoom{opacity:1}.port-count{position:absolute;top:14px;left:14px;z-index:3;background:rgba(22,43,41,.55);backdrop-filter:blur(6px);color:#fff;font-size:10px;letter-spacing:.06em;padding:5px 10px;border-radius:999px;pointer-events:none}
+.port-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}.port-note{font-size:13px;color:var(--muted);line-height:1.7;max-width:420px}.port-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}.port-item{position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(145deg,#c8ddd7,#7ab5ac);box-shadow:0 16px 46px rgba(22,43,41,.08);transition:.35s;cursor:pointer}.port-item:hover{transform:translateY(-5px)}.port-item.tall{grid-row:span 2}.port-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(22,43,41,.48);font-size:12px;text-align:center;padding:20px;width:100%;height:100%;justify-content:center;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.3),transparent 25%)}.port-ph .phi{font-size:28px;opacity:.45}.port-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(1.04) contrast(1.02)}video.port-img{background:#c8ddd7;object-fit:cover;object-position:center;pointer-events:none}.port-item.loaded .port-ph{display:none}.port-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,60,55,.74),transparent 58%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:.3s;pointer-events:none}.port-item:hover .port-ov{opacity:1}.port-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:white}.port-zoom{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(247,251,249,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--teal-deep);z-index:3;opacity:0;transition:.25s;pointer-events:none}.port-item:hover .port-zoom{opacity:1}.port-count{position:absolute;top:14px;left:14px;z-index:3;background:rgba(22,43,41,.55);backdrop-filter:blur(6px);color:#fff;font-size:10px;letter-spacing:.06em;padding:5px 10px;border-radius:999px;pointer-events:none}.port-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(22,43,41,.42);backdrop-filter:blur(4px);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none;padding-left:4px}
 @media(max-width:900px){.port-head{display:block}.port-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.port-item{min-height:220px}.port-item.tall{grid-row:span 1}.port-zoom{opacity:1}}@media(max-width:520px){.port-grid{grid-template-columns:1fr}}
 
 /* LIGHTBOX */
@@ -203,6 +203,10 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 .lightbox-inner img.zoomed{cursor:zoom-out}
 .lightbox-close{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5}
 .lightbox-close:hover{background:rgba(255,255,255,.22)}
+.lightbox-zoom{position:absolute;top:-46px;right:48px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5}
+.lightbox-zoom:hover{background:rgba(255,255,255,.22)}
+.lightbox-zoom.active{background:var(--teal-pale);color:var(--teal-dark);border-color:var(--teal-pale)}
+.lightbox-zoom[hidden]{display:none}
 .lightbox-tag{position:absolute;bottom:-38px;left:0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:.2s}
 .lightbox-nav:hover{background:rgba(255,255,255,.22)}
@@ -211,7 +215,7 @@ nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px
 .lightbox-dots{position:absolute;bottom:-38px;right:0;display:flex;gap:7px}
 .lightbox-dots .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.2s}
 .lightbox-dots .dot.active{background:#fff;width:18px;border-radius:4px}
-@media(max-width:600px){.lightbox-close{top:-42px;width:34px;height:34px}.lightbox-nav{width:40px;height:40px;font-size:22px}.lightbox-nav.prev{left:-2px}.lightbox-nav.next{right:-2px}.lightbox-dots{bottom:-34px}.lightbox-tag{bottom:-58px}}
+@media(max-width:600px){.lightbox-close{top:-42px;width:34px;height:34px}.lightbox-zoom{top:-42px;right:42px;width:34px;height:34px}.lightbox-nav{width:40px;height:40px;font-size:22px}.lightbox-nav.prev{left:-2px}.lightbox-nav.next{right:-2px}.lightbox-dots{bottom:-34px}.lightbox-tag{bottom:-58px}}
 
 /* PACKAGE */
 .package{background:rgba(234,242,239,.64)}
@@ -417,17 +421,18 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
     <div class="port-item tall" onclick="openGallery('beauty', 0)">
       <span class="port-zoom">⤢</span>
       <span class="port-count">1/4</span>
+      <span class="port-play">▶</span>
       <video
         class="port-img"
+        autoplay
+        muted
         loop
         playsinline
-        controls
         preload="metadata"
         poster="./portfolio-beauty-poster.jpg"
         aria-label="Beauty and nail salon content video"
         onloadeddata="this.parentElement.classList.add('loaded')"
         onerror="this.remove()"
-        onclick="event.stopPropagation()"
       >
         <source src="./portfolio-beauty.mp4" type="video/mp4">
       </video>
@@ -444,6 +449,7 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lightbox-zoom" id="lightboxZoomBtn" onclick="event.stopPropagation();toggleZoom()" aria-label="Zoom">⊕</button>
     <button class="lightbox-nav prev" onclick="event.stopPropagation();navGallery(-1)" aria-label="Previous">‹</button>
     <button class="lightbox-nav next" onclick="event.stopPropagation();navGallery(1)" aria-label="Next">›</button>
     <div id="lightboxContent"></div>
@@ -653,6 +659,10 @@ function openGallery(key, index){
   renderSlide();
 }
 
+let isZoomed = false;
+let panX = 0, panY = 0;
+const zoomBtn = document.getElementById('lightboxZoomBtn');
+
 function renderSlide(){
   const gallery = galleries[currentGalleryKey];
   if(!gallery) return;
@@ -661,8 +671,12 @@ function renderSlide(){
   const oldVid = lightboxContent.querySelector('video');
   if(oldVid) oldVid.pause();
   lightboxContent.innerHTML = '';
+  isZoomed = false;
+  panX = 0; panY = 0;
+  zoomBtn.classList.remove('active');
 
   if(item.type === 'video'){
+    zoomBtn.hidden = true;
     const vid = document.createElement('video');
     vid.src = item.src;
     if(item.poster) vid.poster = item.poster;
@@ -672,14 +686,14 @@ function renderSlide(){
     vid.onerror = () => { vid.replaceWith(placeholderEl(gallery.tag)); };
     lightboxContent.appendChild(vid);
   } else {
+    zoomBtn.hidden = false;
     const img = document.createElement('img');
+    img.id = 'lightboxImg';
     img.src = item.src;
     img.alt = gallery.tag;
-    img.onerror = () => { img.replaceWith(placeholderEl(gallery.tag)); };
-    img.addEventListener('click', () => {
-      img.classList.toggle('zoomed');
-      img.style.transform = img.classList.contains('zoomed') ? 'scale(2)' : '';
-    });
+    img.onerror = () => { img.replaceWith(placeholderEl(gallery.tag)); zoomBtn.hidden = true; };
+    img.addEventListener('click', (e) => { e.stopPropagation(); toggleZoom(); });
+    attachDrag(img);
     lightboxContent.appendChild(img);
   }
 
@@ -698,6 +712,49 @@ function renderSlide(){
 
   const navBtns = lightboxEl.querySelectorAll('.lightbox-nav');
   navBtns.forEach(btn => btn.style.display = gallery.items.length > 1 ? 'flex' : 'none');
+}
+
+function toggleZoom(){
+  const img = document.getElementById('lightboxImg');
+  if(!img) return;
+  isZoomed = !isZoomed;
+  img.classList.toggle('zoomed', isZoomed);
+  zoomBtn.classList.toggle('active', isZoomed);
+  panX = 0; panY = 0;
+  img.style.transform = isZoomed ? 'scale(2.4)' : '';
+}
+
+function attachDrag(img){
+  let dragging = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+
+  const start = (x, y) => {
+    if(!isZoomed) return;
+    dragging = true;
+    startX = x; startY = y;
+    startPanX = panX; startPanY = panY;
+  };
+  const move = (x, y) => {
+    if(!dragging) return;
+    panX = startPanX + (x - startX);
+    panY = startPanY + (y - startY);
+    const max = 160;
+    panX = Math.max(-max, Math.min(max, panX));
+    panY = Math.max(-max, Math.min(max, panY));
+    img.style.transform = 'scale(2.4) translate(' + (panX / 2.4) + 'px,' + (panY / 2.4) + 'px)';
+  };
+  const end = () => { dragging = false; };
+
+  img.addEventListener('mousedown', e => { e.preventDefault(); start(e.clientX, e.clientY); });
+  window.addEventListener('mousemove', e => move(e.clientX, e.clientY));
+  window.addEventListener('mouseup', end);
+
+  img.addEventListener('touchstart', e => {
+    if(isZoomed && e.touches.length === 1){ start(e.touches[0].clientX, e.touches[0].clientY); }
+  }, { passive: true });
+  img.addEventListener('touchmove', e => {
+    if(isZoomed && e.touches.length === 1){ move(e.touches[0].clientX, e.touches[0].clientY); }
+  }, { passive: true });
+  img.addEventListener('touchend', end);
 }
 
 function placeholderEl(tag){
@@ -737,6 +794,7 @@ lightboxEl.addEventListener('touchstart', e => {
   touchStartY = e.touches[0].clientY;
 }, { passive: true });
 lightboxEl.addEventListener('touchend', e => {
+  if(isZoomed) return;
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
   if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){
