@@ -418,7 +418,7 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
 <section class="s-wrap portfolio" id="portfolio"><div class="inner">
   <div class="port-head reveal"><div><p class="s-eye">Selected work</p><h2 class="s-title">Real work,<br><em>real local businesses.</em></h2></div><p class="port-note">Real visuals from real shoots — storefronts, food, people, staff, products, and service moments — built to earn trust fast.</p></div>
   <div class="port-grid reveal">
-    <div class="port-item tall" onclick="openGallery('beauty', 0)">
+    <div class="port-item tall" data-gallery="beauty" onclick="openGallery('beauty', 0)">
       <span class="port-zoom">⤢</span>
       <span class="port-count">1/4</span>
       <span class="port-play">▶</span>
@@ -437,12 +437,12 @@ footer{background:var(--ink);padding:30px 52px;display:flex;justify-content:spac
         <source src="./portfolio-beauty.mp4" type="video/mp4">
       </video>
       <div class="port-ph"><span class="phi">🎬</span><p>Loading beauty / nail salon video</p></div>
-      <div class="port-ov"><span class="port-tag">Beauty & Nail</span></div>
+      <div class="port-ov"><span class="port-tag">TikTok and Reels</span></div>
     </div>
-    <div class="port-item" onclick="openGallery('food', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-food.jpg" alt="Restaurant or food reel thumbnail" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Reel thumbnail<br>restaurant / food</p></div><div class="port-ov"><span class="port-tag">Restaurant Reel</span></div></div>
-    <div class="port-item" onclick="openGallery('bar', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-bar.jpg" alt="Bar or cantina photo" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Bar / cantina shot</p></div><div class="port-ov"><span class="port-tag">Bar & Nightlife</span></div></div>
-    <div class="port-item" onclick="openGallery('barber', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-barber.jpg" alt="Barbershop reel thumbnail" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Barbershop reel</p></div><div class="port-ov"><span class="port-tag">Barbershop</span></div></div>
-    <div class="port-item" onclick="openGallery('wellness', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-wellness.jpg" alt="Wellness spa photo" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Wellness / spa shot</p></div><div class="port-ov"><span class="port-tag">Wellness Spa</span></div></div>
+    <div class="port-item" data-gallery="food" onclick="openGallery('food', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-food.jpg" alt="Restaurant portfolio image" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Restaurant</p></div><div class="port-ov"><span class="port-tag">Restaurant</span></div></div>
+    <div class="port-item" data-gallery="bar" onclick="openGallery('bar', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-bar.jpg" alt="Bar or cantina photo" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Bar / cantina shot</p></div><div class="port-ov"><span class="port-tag">Bar & Nightlife</span></div></div>
+    <div class="port-item" data-gallery="barber" onclick="openGallery('barber', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-barber.jpg" alt="Barbershop reel thumbnail" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">🎬</span><p>Barbershop reel</p></div><div class="port-ov"><span class="port-tag">Barbershop</span></div></div>
+    <div class="port-item" data-gallery="wellness" onclick="openGallery('wellness', 0)"><span class="port-zoom">⤢</span><span class="port-count">1/4</span><img class="port-img" src="./portfolio-wellness.jpg" alt="Wellness spa photo" loading="lazy" onload="this.parentElement.classList.add('loaded')" onerror="this.remove()"><div class="port-ph"><span class="phi">📸</span><p>Wellness / spa shot</p></div><div class="port-ov"><span class="port-tag">Wellness Spa</span></div></div>
   </div>
 </div></section>
 
@@ -600,7 +600,7 @@ const lightboxDots = document.getElementById('lightboxDots');
 // Add more filenames here as real photos come in — the slideshow/dots update automatically.
 const galleries = {
   beauty: {
-    tag: 'Beauty & Nail',
+    tag: 'TikTok and Reels',
     items: [
       { type: 'video', src: './portfolio-beauty.mp4', poster: './portfolio-beauty-poster.jpg' },
       { type: 'image', src: './portfolio-beauty-2.jpg' },
@@ -609,7 +609,7 @@ const galleries = {
     ]
   },
   food: {
-    tag: 'Restaurant Reel',
+    tag: 'Restaurant',
     items: [
       { type: 'image', src: './portfolio-food.jpg' },
       { type: 'image', src: './portfolio-food-2.jpg' },
@@ -645,6 +645,40 @@ const galleries = {
     ]
   }
 };
+
+// Only keep media files that really exist. Add a file later using one of the
+// filenames above and it will appear automatically, with the correct count.
+function mediaExists(item){
+  return new Promise(resolve => {
+    const media = document.createElement(item.type === 'video' ? 'video' : 'img');
+    const done = value => { media.removeAttribute('src'); resolve(value); };
+    if(item.type === 'video'){
+      media.preload = 'metadata';
+      media.onloadedmetadata = () => done(true);
+    } else {
+      media.onload = () => done(true);
+    }
+    media.onerror = () => done(false);
+    media.src = item.src;
+  });
+}
+
+async function refreshPortfolio(){
+  await Promise.all(Object.entries(galleries).map(async ([key, gallery]) => {
+    const checks = await Promise.all(gallery.items.map(mediaExists));
+    gallery.items = gallery.items.filter((_, index) => checks[index]);
+    const tile = document.querySelector('.port-item[data-gallery="' + key + '"]');
+    if(!tile) return;
+    if(!gallery.items.length){
+      tile.hidden = true;
+      return;
+    }
+    const count = tile.querySelector('.port-count');
+    if(count) count.textContent = '1/' + gallery.items.length;
+  }));
+}
+
+refreshPortfolio();
 
 let currentGalleryKey = null;
 let currentIndex = 0;
